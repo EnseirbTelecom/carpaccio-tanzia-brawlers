@@ -1,0 +1,24 @@
+{
+  "name": "carpaccio",
+  "version": "1.0.0",
+  "description": "Carpaccio",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnseirbTelecom/carpaccio-tanzia-brawlers.git"
+  },
+  "author": "Slama Jaballah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnseirbTelecom/carpaccio-tanzia-brawlers/issues"
+  },
+  "homepage": "https://github.com/EnseirbTelecom/carpaccio-tanzia-brawlers#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
