@@ -1,15 +1,15 @@
 ﻿# Carpaccio-tanzia-brawlers
-Carpaccio is a price calulating API.
+Carpaccio is a price calculating API.
 
 ## V 1.0.0
-Added a GET request at /id
+Added a GET request at /id.  
 Test it using the following command :
 ```bash
 curl -i -X GET localhost:3000/id
 ```
 
 ## V 1.1.0
-Added a POST request at /bill.
+Added a POST request at /bill.  
 Test it using the following command :
 ```bash
 curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "quantities" : [1,2]}' localhost:3000/bill
