@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const modules = require('./modules')
 
 const app = express()
 
@@ -11,8 +12,10 @@ app.get('/id', (req, res) => {
 })
 
 app.post('/bill', (req, res) => {
+  const BillCalculator = modules.billCalculator
   const { prices: price, quantities: quantity } = req.body
-  if (price === undefined || quantity === undefined || price.length !== quantity.length) { res.send({ error: 'error message' }) } else { res.send({ total: sum(price, quantity) }) }
+  const bill = new BillCalculator(price, quantity)
+  res.send({ result: bill.billResult() })
 })
 
 app.listen(3000, () => {
