@@ -1,6 +1,17 @@
 ﻿# Carpaccio-tanzia-brawlers
 Carpaccio is a price calculating API.
 
+## Getting started
+Clone this project and then run the following commands : 
+```bash
+npm install
+npm start
+```
+To run the tests : 
+```bash
+npm test
+```
+
 ## V 1.0.0
 Added a GET request at /id.  
 Test it using the following command :
