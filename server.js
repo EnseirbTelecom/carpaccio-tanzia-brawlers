@@ -13,9 +13,9 @@ app.get('/id', (req, res) => {
 
 app.post('/bill', (req, res) => {
   const BillCalculator = modules.billCalculator
-  const { prices: price, quantities: quantity } = req.body
+  const { prices: price, quantities: quantity, country: countryCode } = req.body
   try {
-    const bill = new BillCalculator(price, quantity)
+    const bill = new BillCalculator(price, quantity, countryCode)
     res.send({ result: bill.result })
   } catch (e) {
     res.send({ error: e.message })

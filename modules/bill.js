@@ -1,15 +1,20 @@
-function sum (price, quantity) {
+const TvaGenerator = require('./TvaGenerator.js')
+
+function sum (price, quantity, tva) {
   let sum = 0
   price.forEach((element, index) => { sum += element * quantity[index] })
+  sum = sum * (1 + parseFloat(tva))
   return sum
 }
 
 class BillCalculator {
-  constructor (prices, quantities) {
+  constructor (prices, quantities, countryCode) {
     this.prices = prices
     this.quantities = quantities
+    this.countryCode = countryCode
+    this.tva = 0
     this.checkParameters()
-    this.result = sum(this.prices, this.quantities)
+    this.result = sum(this.prices, this.quantities, this.tva)
   }
 
   checkParameters () {
@@ -29,6 +34,12 @@ class BillCalculator {
           throw new Error('Le prix ne peut pas être négatif!')
         }
       })
+    }
+    try {
+      const tvaGen = new TvaGenerator(this.countryCode)
+      this.tva = tvaGen.tva
+    } catch (e) {
+      throw new Error(e.message)
     }
   }
 }
