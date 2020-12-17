@@ -12,10 +12,10 @@ app.get('/id', (req, res) => {
 })
 
 app.post('/bill', (req, res) => {
-  const BillCalculator = modules.billCalculator
-  const { prices: price, quantities: quantity, country: countryCode } = req.body
+  const BillDiscount = modules.billDiscount
+  const { prices: price, quantities: quantity, country: countryCode, discount: discountType } = req.body
   try {
-    const bill = new BillCalculator(price, quantity, countryCode)
+    const bill = new BillDiscount(price, quantity, countryCode, discountType)
     res.send({ result: bill.result })
   } catch (e) {
     res.send({ error: e.message })
