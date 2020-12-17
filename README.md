@@ -48,13 +48,12 @@ A variety of different discounts is offered :
 NO_DISCOUNT :  
 >0% reduction.  
   
-PROGRESSIVE_DISCOUNT
-Total	     Reduction  
->&>= 50 000 EUR	15 %  
->&>= 10 000 EUR	10 %  
->&>= 7 000 EUR	7 %  
->&>= 5 000 EUR	5 %  
->&>= 1 000 EUR	3 %  
+PROGRESSIVE_DISCOUNT :    
+> Total >= 50 000 EUR : 15 % reduction  
+> Total >= 10 000 EUR : 10 % reduction  
+> Total >= 7 000 EUR : 7 % reduction    
+> Total >= 5 000 EUR : 5 % reduction  
+> Total >= 1 000 EUR : 3 % reduction  
   
 FLAT_DISCOUNT :  
 >30 % reduction  
