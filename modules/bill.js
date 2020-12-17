@@ -18,7 +18,7 @@ class BillCalculator {
   }
 
   checkParameters () {
-    if (this.quantities === undefined || this.prices === undefined) {
+    if (this.quantities === undefined || this.prices === undefined || this.countryCode === undefined) {
       throw new Error('Something went wrong .... Please try again !')
     } else if (this.quantities.length === 0) {
       throw new Error('Votre panier est vide !')
