@@ -27,7 +27,7 @@ curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "qua
 ```
 
 ## V 2.0.0
-Expanded the /bill POST resquest with a country's corresponding value-added tax.  
+Expanded the /bill POST request with a country's corresponding value-added tax.  
 Test it using the following command :
 ```bash
 curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "quantities" : [1,2], "country" : "FR"}' localhost:3000/bill
@@ -38,29 +38,31 @@ Adding a country's value-added tax entry should follow the following structure :
 {"country" : <country>, "code" : <country_code>, "tva" : <country_values_added_tax_in_decimal_format> }
 ```
 ## V 2.1.0
-Expanded the /bill POST resquest with discounts.  
+Expanded the /bill POST request with discounts.  
 Test it using the following command :
 ```bash
 curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "quantities" : [1,2], "country" : "FR", "discount" : "FLAT_DISCOUNT"}' localhost:3000/bill
 ```
 A variety of different discounts is offered :   
   
-NO_DISCOUNT : 0% reduction.  
+NO_DISCOUNT :  
+>0% reduction.  
   
 PROGRESSIVE_DISCOUNT
 Total	     Reduction  
->= 50 000 EUR	15 %  
->= 10 000 EUR	10 %  
->= 7 000 EUR	7 %  
->= 5 000 EUR	5 %  
->= 1 000 EUR	3 %  
+>&>= 50 000 EUR	15 %  
+>&>= 10 000 EUR	10 %  
+>&>= 7 000 EUR	7 %  
+>&>= 5 000 EUR	5 %  
+>&>= 1 000 EUR	3 %  
   
-FLAT_DISCOUNT : 30 % reduction  
+FLAT_DISCOUNT :  
+>30 % reduction  
   
 FIXED_DISCOUNT :  
--10 euros if the total spent is over 100 euros but under 400 euros    
--50 euros if the total spent is over 400 euros but under 1000 euros    
--200 euros if the total spent is over 1000 euros   
+>-10 euros if the total spent is over 100 euros but under 400 euros    
+>-50 euros if the total spent is over 400 euros but under 1000 euros    
+>-200 euros if the total spent is over 1000 euros   
 
 ## Contributors
 ### Tanzia Brawlers 
