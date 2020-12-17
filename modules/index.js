@@ -1,1 +1,1 @@
-exports.billCalculator = require('./bill.js')
+exports.billDiscount = require('./billDiscount.js')
