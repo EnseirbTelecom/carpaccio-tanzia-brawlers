@@ -27,13 +27,13 @@ curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "qua
 ```
 
 ## V 2.0.0
-Expanded the /bill POST resquest with a country corresponding value-added tax.  
+Expanded the /bill POST resquest with a country's corresponding value-added tax.  
 Test it using the following command :
 ```bash
 curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "quantities" : [1,2], "country" : "FR"}' localhost:3000/bill
 ```
-Within the file /src/tva, a list of all possible countries is referenced.
-Adding a country's value-added tax entry shloud follow the following structure :
+Within the file /src/tva, a list of all possible countries is referenced.  
+Adding a country's value-added tax entry should follow the following structure :
 ```bash
 {"country" : <country>, "code" : <country_code>, "tva" : <country_values_added_tax_in_decimal_format> }
 ```
