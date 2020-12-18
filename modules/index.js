@@ -1,1 +1,1 @@
-exports.billDiscount = require('./billDiscount.js')
+exports.currencyConverter = require('./currencyConverter.js')

@@ -29,7 +29,7 @@ function discountCalculator (sum, discount) {
       }
       return sum
     default:
-      throw new Error('Discount type not recognized')
+      throw new Error('Discount type non reconnu')
   }
 }
 
