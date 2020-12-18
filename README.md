@@ -37,6 +37,7 @@ Adding a country's value-added tax entry should follow the following structure :
 ```bash
 {"country" : <country>, "code" : <country_code>, "tva" : <country_values_added_tax_in_decimal_format> }
 ```
+
 ## V 2.1.0
 Expanded the /bill POST request with discounts.  
 Test it using the following command :
@@ -61,7 +62,17 @@ FLAT_DISCOUNT :
 FIXED_DISCOUNT :  
 >-10 euros if the total spent is over 100 euros but under 400 euros    
 >-50 euros if the total spent is over 400 euros but under 1000 euros    
->-200 euros if the total spent is over 1000 euros   
+>-200 euros if the total spent is over 1000 euros  
+
+## V 2.2.0
+Expanded the /bill POST request with foreign exchange rates conversion.  
+Test it using the following command :
+```bash
+curl -i -X POST -H 'Content-Type: application/json' -d '{"prices": [10,20], "quantities" : [1,2], "country" : "FR", "discount" : "FLAT_DISCOUNT", "currency": "USD"}' localhost:3000/bill
+```
+An external API is used to determine the current rates. ([External API  documentation](https://exchangeratesapi.io/))  
+Note : prices are still provided in euros.
+
 
 ## Contributors
 ### Tanzia Brawlers 
