@@ -7,7 +7,7 @@ class TvaGenerator {
   }
 
   checkCountry (countryCode) {
-    const file = fs.readFileSync('./src/tva', 'utf8')
+    const file = fs.readFileSync('./ressources/tva', 'utf8')
     const splitFile = file.split(/\r?\n/)
     splitFile.forEach((line, idx) => {
       if (line.includes(countryCode)) {

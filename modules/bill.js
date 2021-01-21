@@ -1,4 +1,4 @@
-const TvaGenerator = require('./TvaGenerator.js')
+const TvaGenerator = require('./tvaGenerator.js')
 
 function sum (price, quantity, tva) {
   let sum = 0
