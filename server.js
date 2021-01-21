@@ -17,7 +17,8 @@ app.post('/bill', (req, res) => {
   try {
     new CurrencyConverter().getResult(price, quantity, countryCode, discountType, currencyCode, (data) => {
       res.send({ result: data })
-    })
+    }, (e) => { res.send({ error: e.message }) }
+    )
   } catch (e) {
     res.send({ error: e.message })
   }

@@ -1,6 +1,5 @@
 const TvaGenerator = require('./tvaGenerator.js')
 
-
 function sum (price, quantity, tva) {
   let sum = 0
   price.forEach((element, index) => { sum += element * quantity[index] })
