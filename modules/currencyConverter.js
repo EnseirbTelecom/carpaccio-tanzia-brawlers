@@ -1,24 +1,25 @@
 const fetch = require('node-fetch')
 const BillDiscount = require('./billDiscount.js')
 
-function currencyConvert (sum, currencyCode, callback) {
+async function currencyConvert (sum, currencyCode, callback) {
   const url = 'https://api.exchangeratesapi.io/latest?symbols=' + currencyCode
-  fetch(url, {
+  await fetch(url, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then((res) => {
+  }).then(async (res) => {
     if (res.status === 200) {
       res.json().then(data => {
         const changeRate = data.rates[currencyCode]
         const result = sum * changeRate
         callback(result)
-        return result
       })
     } else {
-      return null
+      throw new Error('Something went wrong with the API request')
     }
+  }).catch((e) => {
+    throw new Error(e.message)
   })
 }
 class CurrencyConverter {
@@ -27,14 +28,11 @@ class CurrencyConverter {
     this.result = null
   }
 
-  getResult (price, quantity, countryCode, discountType, currencyCode, callback) {
+  getResult (price, quantity, countryCode, discountType, currencyCode, callback, errorCallback) {
     try {
       this.bill = new BillDiscount(price, quantity, countryCode, discountType)
       if (currencyCode) {
-        this.result = currencyConvert(this.bill.result, currencyCode, callback)
-        if (!this.result) {
-          throw new Error('Something went wrong')
-        }
+        currencyConvert(this.bill.result, currencyCode, callback).catch((e) => { errorCallback(e) })
       } else {
         this.result = this.bill.result
         callback(this.result)

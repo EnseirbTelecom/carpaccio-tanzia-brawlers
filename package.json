@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "standard && jest --coverage ",
-    "mutation": "stryker run"
+    "mutation": "stryker run",
+    "fix":  "standard --fix"
   },
   "repository": {
     "type": "git",
